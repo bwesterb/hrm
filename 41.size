@@ -1,0 +1,47 @@
+-- HUMAN RESOURCE MACHINE PROGRAM --
+
+start:
+    COPYFROM 24
+    COPYTO 23
+
+readloop:
+    INBOX
+    COPYTO [23]
+    JUMPZ sort
+    BUMPUP 23
+    JUMP readloop
+
+sort:
+    COPYFROM 24
+    COPYTO 23
+
+sortloop:
+    COPYFROM [23]
+    COPYTO 20
+    BUMPUP 23
+    COPYFROM [23]
+    COPYTO 21
+    JUMPZ write
+
+    SUB 20
+    JUMPN swap
+    JUMP sortloop
+
+swap:
+    COPYFROM 20
+    COPYTO [23]
+    BUMPDN 23
+    COPYFROM 21
+    COPYTO [23]
+    JUMP sort
+
+write:
+    COPYFROM 24
+    COPYTO 23
+    
+writeloop:
+    COPYFROM [23]
+    JUMPZ start
+    OUTBOX
+    BUMPUP 23
+    JUMP writeloop

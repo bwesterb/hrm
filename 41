@@ -1,22 +1,52 @@
 -- HUMAN RESOURCE MACHINE PROGRAM --
 
 start:
-    COPYFROM 14
-    COPYTO 1
-    INBOX
-    COPYTO 0
-    
-loop:
-    COPYFROM 0
-    SUB 15
-    JUMPN done
-    COPYTO 0
-    BUMPUP 1
-    JUMP loop
+    COPYFROM 24
+    COPYTO 23
 
-done:
-    COPYFROM 0
+readnext:
+    INBOX
+    JUMPZ write
+    COPYTO 21
+
+    COPYFROM 24
+    COPYTO 22
+
+insertionloop:
+    SUB 23
+    JUMPZ finishinsert
+    COPYFROM [22]
+    SUB 21
+    JUMPN inserthere
+    BUMPUP 22
+    JUMP insertionloop
+
+inserthere:
+    COPYFROM 23
+    COPYTO 20
+    
+shiftloop:
+    BUMPDN 20
+    COPYFROM [20]
+    COPYTO 19
+    BUMPUP 20
+    COPYFROM 19
+    COPYTO [20]
+    BUMPDN 20
+    SUB 22
+    JUMPZ finishinsert
+    JUMP shiftloop
+
+
+write:
+    BUMPDN 23
+    JUMPN start
+    COPYFROM [23]
     OUTBOX
-    COPYFROM 1
-    OUTBOX
-    JUMP start
+    JUMP write
+
+finishinsert:
+    COPYFROM 21
+    COPYTO [22]
+    BUMPUP 23
+    JUMP readnext
