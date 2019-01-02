@@ -1,0 +1,25 @@
+-- HUMAN RESOURCE MACHINE PROGRAM --
+
+start:
+    INBOX
+    COPYTO 5
+
+    COPYFROM 9
+    COPYTO 0
+    COPYTO 1
+    BUMPUP 0
+
+inner:
+    COPYFROM 5
+    SUB 0
+    JUMPN start
+    COPYFROM 0
+    COPYTO 2
+    OUTBOX
+    COPYFROM 0
+    
+    ADD 1
+    COPYTO 0
+    COPYFROM 2
+    COPYTO 1
+    JUMP inner

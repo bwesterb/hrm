@@ -1,0 +1,79 @@
+-- HUMAN RESOURCE MACHINE PROGRAM --
+
+start:
+    INBOX
+    COPYTO 0
+    INBOX
+    COPYTO 1
+    INBOX
+    COPYTO 2
+
+    SUB 1
+    JUMPN cb
+
+    COPYFROM 0
+    SUB 1
+    JUMPN abc
+
+    COPYFROM 1
+    OUTBOX
+
+    COPYFROM 0
+    SUB 2
+    JUMPN bac
+
+    COPYFROM 2
+    OUTBOX
+    COPYFROM 0
+    OUTBOX
+    JUMP start
+
+cb:
+    COPYFROM 0
+    SUB 2
+    JUMPN acb
+
+    COPYFROM 2
+    OUTBOX
+
+    COPYFROM 0
+    SUB 1
+    JUMPN cab
+
+    COPYFROM 1
+    OUTBOX
+    COPYFROM 0
+    OUTBOX
+    JUMP start
+    
+abc:
+    COPYFROM 0
+    OUTBOX
+    COPYFROM 1
+    OUTBOX
+    COPYFROM 2
+    OUTBOX
+    JUMP start
+
+acb:
+    COPYFROM 0
+    OUTBOX
+    COPYFROM 2
+    OUTBOX
+    COPYFROM 1
+    OUTBOX
+    JUMP start
+
+bac:
+    COPYFROM 0
+    OUTBOX
+    COPYFROM 2
+    OUTBOX
+    JUMP start
+
+cab:
+    COPYFROM 0
+    OUTBOX
+    COPYFROM 1
+    OUTBOX
+    JUMP start

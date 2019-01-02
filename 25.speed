@@ -1,0 +1,69 @@
+-- HUMAN RESOURCE MACHINE PROGRAM --
+
+start:
+    INBOX
+    COPYTO 0
+    COPYTO 1
+
+    JUMPZ null
+
+loop:
+    BUMPDN 1
+    JUMPZ zero
+    COPYTO 2
+
+    BUMPDN 1
+    JUMPZ one
+    COPYTO 3
+
+    BUMPDN 1
+    JUMPZ two
+    COPYTO 4
+
+    BUMPDN 1
+    JUMPZ three
+    COPYTO 5
+
+    BUMPDN 1
+    JUMPZ four
+    ADD 5
+    ADD 4
+    ADD 3
+    ADD 2
+    ADD 0
+    COPYTO 0
+    JUMP loop
+
+four:
+    COPYFROM  0
+    ADD 2
+    ADD 3
+    ADD 4
+    ADD 5
+    OUTBOX
+    JUMP start
+three:
+    COPYFROM  0
+    ADD 2
+    ADD 3
+    ADD 4
+    OUTBOX
+    JUMP start
+two:
+    COPYFROM  0
+    ADD 2
+    ADD 3
+    OUTBOX
+    JUMP start
+one:
+    COPYFROM  0
+    ADD 2
+    OUTBOX
+    JUMP start
+zero:
+    COPYFROM 0
+    OUTBOX
+    JUMP start
+null:
+    OUTBOX
+    JUMP start

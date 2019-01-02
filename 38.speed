@@ -1,0 +1,189 @@
+-- HUMAN RESOURCE MACHINE PROGRAM --
+
+start:
+    INBOX
+    COPYTO 0
+
+    SUB 10
+    JUMPN belowten
+
+    COPYFROM 9
+    COPYTO 1
+
+    COPYFROM 0
+    SUB 11
+    JUMPN hundreds0
+    SUB 11
+    JUMPN hundreds1
+    SUB 11
+    JUMPN hundreds2
+    SUB 11
+    JUMPN hundreds3
+    SUB 11
+    JUMPN hundreds4
+    SUB 11
+    JUMPN hundreds5
+    SUB 11
+    JUMPN hundreds6
+    SUB 11
+    JUMPN hundreds7
+    SUB 11
+    JUMPN hundreds8
+    SUB 11
+    JUMPN hundreds9
+
+hundreds9:
+    ADD 11
+    COPYTO 0
+    JUMP phundreds9
+hundreds8:
+    ADD 11
+    COPYTO 0
+    JUMP phundreds8
+hundreds7:
+    ADD 11
+    COPYTO 0
+    JUMP phundreds7
+hundreds6:
+    ADD 11
+    COPYTO 0
+    JUMP phundreds6
+hundreds5:
+    ADD 11
+    COPYTO 0
+    JUMP phundreds5
+hundreds4:
+    ADD 11
+    COPYTO 0
+    JUMP phundreds4
+hundreds3:
+    ADD 11
+    COPYTO 0
+    JUMP phundreds3
+hundreds2:
+    ADD 11
+    COPYTO 0
+    JUMP phundreds2
+hundreds1:
+    ADD 11
+    COPYTO 0
+    JUMP phundreds1
+hundreds0:
+    ADD 11
+    COPYTO 0
+    JUMP phundreds0
+
+phundreds9:
+    BUMPUP 1
+phundreds8:
+    BUMPUP 1
+phundreds7:
+    BUMPUP 1
+phundreds6:
+    BUMPUP 1
+phundreds5:
+    BUMPUP 1
+phundreds4:
+    BUMPUP 1
+phundreds3:
+    BUMPUP 1
+phundreds2:
+    BUMPUP 1
+phundreds1:
+    BUMPUP 1
+    OUTBOX
+phundreds0:
+    COPYFROM 9
+    COPYTO 1
+
+    COPYFROM 0
+    SUB 10
+    JUMPN tens0
+    SUB 10
+    JUMPN tens1
+    SUB 10
+    JUMPN tens2
+    SUB 10
+    JUMPN tens3
+    SUB 10
+    JUMPN tens4
+    SUB 10
+    JUMPN tens5
+    SUB 10
+    JUMPN tens6
+    SUB 10
+    JUMPN tens7
+    SUB 10
+    JUMPN tens8
+    SUB 10
+    JUMPN tens9
+
+tens9:
+    ADD 10
+    COPYTO 0
+    JUMP ptens9
+tens8:
+    ADD 10
+    COPYTO 0
+    JUMP ptens8
+tens7:
+    ADD 10
+    COPYTO 0
+    JUMP ptens7
+tens6:
+    ADD 10
+    COPYTO 0
+    JUMP ptens6
+tens5:
+    ADD 10
+    COPYTO 0
+    JUMP ptens5
+tens4:
+    ADD 10
+    COPYTO 0
+    JUMP ptens4
+tens3:
+    ADD 10
+    COPYTO 0
+    JUMP ptens3
+tens2:
+    ADD 10
+    COPYTO 0
+    JUMP ptens2
+tens1:
+    ADD 10
+    COPYTO 0
+    JUMP ptens1
+tens0:
+    ADD 10
+    COPYTO 0
+    JUMP ptens0
+
+ptens9:
+    BUMPUP 1
+ptens8:
+    BUMPUP 1
+ptens7:
+    BUMPUP 1
+ptens6:
+    BUMPUP 1
+ptens5:
+    BUMPUP 1
+ptens4:
+    BUMPUP 1
+ptens3:
+    BUMPUP 1
+ptens2:
+    BUMPUP 1
+ptens1:
+    BUMPUP 1
+    COPYTO 1
+ptens0:
+    COPYFROM 1
+    OUTBOX
+
+belowten:
+    COPYFROM 0
+    OUTBOX
+
+    JUMP start

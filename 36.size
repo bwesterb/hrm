@@ -1,0 +1,59 @@
+-- HUMAN RESOURCE MACHINE PROGRAM --
+
+    COPYFROM 23
+    COPYTO 22
+
+readfirst:
+    INBOX
+    JUMPZ readsecond
+    COPYTO [22]
+    BUMPUP 22
+    JUMP readfirst
+
+readsecond:
+    COPYFROM 22
+    COPYTO 21
+    COPYFROM 23
+    COPYTO [21]
+    BUMPUP 22
+
+readsecondloop:
+    BUMPUP 21
+    INBOX
+    JUMPZ writesecondwithoutbump
+    COPYTO [21]
+    COPYFROM 21
+    SUB 22
+    COPYTO 20
+    COPYFROM [20]
+    JUMPZ writefirst
+    SUB [21]
+    JUMPN writefirst
+    JUMPZ readsecondloop
+
+preparewritesecond:
+    BUMPUP 21
+    INBOX
+    JUMPZ writesecondwithoutbump
+    COPYTO [21]
+    JUMP preparewritesecond
+
+writefirst:
+    COPYFROM 23
+    JUMP gowrite
+
+writesecondwithoutbump:
+    COPYTO [21]
+    COPYFROM 22
+
+gowrite:
+    COPYTO 20
+
+write:
+    COPYFROM [20]
+    JUMPZ done
+    OUTBOX
+    BUMPUP 20
+    JUMP write
+
+done:

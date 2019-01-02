@@ -1,0 +1,16 @@
+-- HUMAN RESOURCE MACHINE PROGRAM --
+outer:
+    COPYFROM 5
+    COPYTO 0
+
+inner:
+    INBOX
+    JUMPZ done
+    ADD 0
+    COPYTO 0
+    JUMP inner
+
+done:
+    COPYFROM 0
+    OUTBOX
+    JUMP outer

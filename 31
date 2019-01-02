@@ -1,0 +1,15 @@
+-- HUMAN RESOURCE MACHINE PROGRAM --
+
+start:
+    BUMPUP 14
+    INBOX
+    JUMPZ reverse
+    COPYTO [14]
+    JUMP start
+
+reverse:
+    BUMPDN 14
+    JUMPZ start
+    COPYFROM [14]
+    OUTBOX
+    JUMP reverse

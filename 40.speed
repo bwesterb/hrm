@@ -1,0 +1,191 @@
+-- HUMAN RESOURCE MACHINE PROGRAM --
+
+    COPYFROM 24
+    COPYTO 6
+    COPYTO 7
+    BUMPUP 7
+    COPYTO 8
+    COPYTO 10
+    COPYTO 12
+    COPYTO 11
+    BUMPUP 11
+    BUMPUP 11
+    COPYTO 9
+
+start:
+    COPYFROM 7
+    ADD 7
+    COPYTO 1
+
+    COPYFROM 11
+    ADD 1
+    COPYTO 5
+
+    INBOX
+    COPYTO 0
+
+    JUMP thisdivisoragain
+    
+nextdivisor:
+    BUMPUP 5
+    BUMPUP 1
+    ADD [5]
+    COPYTO 1
+
+thisdivisoragain:
+    COPYFROM 24
+    COPYTO 3
+    COPYFROM 0
+    COPYTO 2
+    COPYTO 4
+    BUMPDN 4
+    JUMPZ start
+
+moduloloop:
+    COPYFROM 2
+    SUB 1
+    JUMPZ itsadivisor1
+    JUMPN nextdivisor
+
+    SUB 1
+    JUMPZ itsadivisor2
+    JUMPN nextdivisor
+
+    SUB 1
+    JUMPZ itsadivisor3
+    JUMPN nextdivisor
+
+    SUB 1
+    JUMPZ itsadivisor4
+    JUMPN nextdivisor
+
+    SUB 1
+    JUMPZ itsadivisor5
+    JUMPN nextdivisor
+
+    SUB 1
+    JUMPZ itsadivisor6
+    JUMPN nextdivisor
+
+    SUB 1
+    JUMPZ itsadivisor7
+    JUMPN nextdivisor
+
+    SUB 1
+    JUMPZ itsadivisor8
+    JUMPN nextdivisor
+
+    SUB 1
+    JUMPZ itsadivisor9
+    JUMPN nextdivisor
+
+    SUB 1
+    JUMPZ itsadivisor10
+    JUMPN nextdivisor
+
+    COPYTO 2
+    BUMPUP 3
+    ADD 9
+    ADD 9
+    ADD 9
+    COPYTO 3
+
+    JUMP moduloloop
+
+itsadivisor1:
+    BUMPUP 3
+    COPYTO 0
+    COPYFROM 1
+    OUTBOX
+    JUMP thisdivisoragain
+
+itsadivisor2:
+    BUMPUP 3
+    BUMPUP 3
+    COPYTO 0
+    COPYFROM 1
+    OUTBOX
+    JUMP thisdivisoragain
+
+itsadivisor3:
+    BUMPUP 3
+    BUMPUP 3
+    BUMPUP 3
+    COPYTO 0
+    COPYFROM 1
+    OUTBOX
+    JUMP thisdivisoragain
+
+itsadivisor4:
+    BUMPUP 3
+    BUMPUP 3
+    BUMPUP 3
+    BUMPUP 3
+    COPYTO 0
+    COPYFROM 1
+    OUTBOX
+    JUMP thisdivisoragain
+
+itsadivisor5:
+    BUMPUP 3
+    BUMPUP 3
+    BUMPUP 3
+    BUMPUP 3
+    BUMPUP 3
+    COPYTO 0
+    COPYFROM 1
+    OUTBOX
+    JUMP thisdivisoragain
+
+itsadivisor6:
+    COPYFROM 3
+    ADD 9
+    ADD 9
+    COPYTO 3
+    COPYTO 0
+    COPYFROM 1
+    OUTBOX
+    JUMP thisdivisoragain
+
+itsadivisor7:
+    BUMPUP 3
+    ADD 9
+    ADD 9
+    COPYTO 3
+    COPYTO 0
+    COPYFROM 1
+    OUTBOX
+    JUMP thisdivisoragain
+
+itsadivisor8:
+    BUMPUP 3
+    BUMPUP 3
+    ADD 9
+    ADD 9
+    COPYTO 3
+    COPYTO 0
+    COPYFROM 1
+    OUTBOX
+    JUMP thisdivisoragain
+
+itsadivisor9:
+    COPYFROM 3
+    ADD 9
+    ADD 9
+    ADD 9
+    COPYTO 3
+    COPYTO 0
+    COPYFROM 1
+    OUTBOX
+    JUMP thisdivisoragain
+
+itsadivisor10:
+    BUMPUP 3
+    ADD 9
+    ADD 9
+    ADD 9
+    COPYTO 3
+    COPYTO 0
+    COPYFROM 1
+    OUTBOX
+    JUMP thisdivisoragain

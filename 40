@@ -1,0 +1,37 @@
+-- HUMAN RESOURCE MACHINE PROGRAM --
+
+start:
+    COPYFROM 24
+    COPYTO 1
+    BUMPUP 1
+
+    INBOX
+    COPYTO 0
+    
+nextdivisor:
+    BUMPUP 1
+
+thisdivisoragain:
+    COPYFROM 24
+    COPYTO 3
+    COPYFROM 0
+    COPYTO 2
+    COPYTO 4
+    BUMPDN 4
+    JUMPZ start
+
+moduloloop:
+    COPYFROM 2
+    SUB 1
+    JUMPZ itsadivisor
+    JUMPN nextdivisor
+    COPYTO 2
+    BUMPUP 3
+    JUMP moduloloop
+
+itsadivisor:
+    BUMPUP 3
+    COPYTO 0
+    COPYFROM 2
+    OUTBOX
+    JUMP thisdivisoragain

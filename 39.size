@@ -1,0 +1,21 @@
+-- HUMAN RESOURCE MACHINE PROGRAM --
+
+start:
+    COPYFROM 14
+    COPYTO 1
+    INBOX
+    
+loop:
+    SUB 15
+    JUMPN done
+    COPYTO 0
+    BUMPUP 1
+    COPYFROM 0
+    JUMP loop
+
+done:
+    ADD 15
+    OUTBOX
+    COPYFROM 1
+    OUTBOX
+    JUMP start

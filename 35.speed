@@ -1,0 +1,112 @@
+-- HUMAN RESOURCE MACHINE PROGRAM --
+
+    COPYFROM 14
+    COPYTO 0
+
+start:
+    INBOX
+    COPYTO 13
+
+    COPYFROM 0
+    JUMPZ add0
+    SUB 13
+    JUMPZ start
+
+    COPYFROM 1
+    JUMPZ add1
+    SUB 13
+    JUMPZ start
+
+    COPYFROM 2
+    JUMPZ add2
+    SUB 13
+    JUMPZ start
+
+    COPYFROM 3
+    JUMPZ add3
+    SUB 13
+    JUMPZ start
+
+    COPYFROM 4
+    JUMPZ add4
+    SUB 13
+    JUMPZ start
+
+    COPYFROM 5
+    JUMPZ add5
+    SUB 13
+    JUMPZ start
+
+    COPYFROM 6
+    JUMPZ add6
+    SUB 13
+    JUMPZ start
+
+    COPYFROM 7
+    JUMPZ add7
+    JUMP start
+
+
+add7:
+    COPYFROM 14
+    COPYTO 8
+    COPYFROM 13
+    COPYTO 7
+    OUTBOX
+    JUMP start
+
+add6:
+    COPYFROM 14
+    COPYTO 7
+    COPYFROM 13
+    COPYTO 6
+    OUTBOX
+    JUMP start
+
+add5:
+    COPYFROM 14
+    COPYTO 6
+    COPYFROM 13
+    COPYTO 5
+    OUTBOX
+    JUMP start
+
+add4:
+    COPYFROM 14
+    COPYTO 5
+    COPYFROM 13
+    COPYTO 4
+    OUTBOX
+    JUMP start
+
+add3:
+    COPYFROM 14
+    COPYTO 4
+    COPYFROM 13
+    COPYTO 3
+    OUTBOX
+    JUMP start
+
+add2:
+    COPYFROM 14
+    COPYTO 3
+    COPYFROM 13
+    COPYTO 2
+    OUTBOX
+    JUMP start
+
+add1:
+    COPYFROM 14
+    COPYTO 2
+    COPYFROM 13
+    COPYTO 1
+    OUTBOX
+    JUMP start
+
+add0:
+    COPYFROM 14
+    COPYTO 1
+    COPYFROM 13
+    COPYTO 0
+    OUTBOX
+    JUMP start
