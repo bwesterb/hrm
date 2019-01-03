@@ -59,7 +59,6 @@ merge:
     COPYFROM [15]
     SUB [16]
     JUMPN output15
-output16:
     COPYFROM [16]
     OUTBOX
     BUMPUP 16
