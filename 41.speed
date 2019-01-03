@@ -14,23 +14,21 @@
     BUMPUP 17
     BUMPUP 18
 start:
-    COPYFROM 22
-    COPYTO 21
-start21wasok:
     INBOX
     COPYTO 9
-    JUMPZ start21wasok
+    JUMPZ start
     INBOX
     COPYTO 8
     JUMPZ writesingle
+    COPYFROM 22
+    COPYTO 21
     BUMPDN 21
     BUMPDN 21
     COPYFROM 24
     COPYTO 15
     COPYTO 19
-    COPYFROM 23
+    COPYFROM 18
     COPYTO 16
-    BUMPUP 16
 readloop:
     INBOX
     JUMPZ zerolooppre
