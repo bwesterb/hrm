@@ -33,19 +33,19 @@ start21wasok:
     BUMPUP 16
 readloop:
     INBOX
-    JUMPZ zeroloop
+    JUMPZ zerolooppre
     COPYTO [21]
     BUMPDN 21
-    JUMPN firstsort
     JUMP readloop
-zeroloop:
+zerolooppre:
     COPYFROM 21
+zeroloop:
+    JUMPN firstsort
     SUB 23
     JUMPZ onlysecondrow
     COPYFROM 24
     COPYTO [21]
     BUMPDN 21
-    JUMPN firstsort
     JUMP zeroloop
 bump15:
     BUMPUP 15
