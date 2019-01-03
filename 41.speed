@@ -96,7 +96,7 @@ sort5:
     COPYFROM [10]
     JUMPZ    sort5skip8
     COPYFROM [14]
-    JUMPZ    sort5skip0
+    JUMPZ    sort5skip1
     SUB      [10]
     JUMPN    sort5skip0
     COPYFROM [14]
@@ -106,92 +106,90 @@ sort5:
     COPYFROM 21
     COPYTO   [10]
 sort5skip0:
-    COPYFROM [12]
-    JUMPZ    sort5skip4
-    SUB      [10]
-    JUMPN    sort5skip1
-    COPYFROM [12]
-    COPYTO   21
-    COPYFROM [10]
-    COPYTO   [12]
-    COPYFROM 21
-    COPYTO   [10]
-sort5skip1:
-    COPYFROM [13]
-    JUMPZ    sort5skip4
-    SUB      [11]
-    JUMPN    sort5skip2
-    COPYFROM [13]
-    COPYTO   21
-    COPYFROM [11]
-    COPYTO   [13]
-    COPYFROM 21
-    COPYTO   [11]
-sort5skip2:
     COPYFROM [14]
-    JUMPZ    sort5skip3
     SUB      [12]
-    JUMPN    sort5skip3
+    JUMPN    sort5skip1
     COPYFROM [14]
     COPYTO   21
     COPYFROM [12]
     COPYTO   [14]
     COPYFROM 21
     COPYTO   [12]
-sort5skip3:
-    COPYFROM [13]
-    JUMPZ    sort5skip4
-    SUB      [12]
-    JUMPN    sort5skip4
-    COPYFROM [13]
-    COPYTO   21
+sort5skip1:
     COPYFROM [12]
-    COPYTO   [13]
-    COPYFROM 21
-    COPYTO   [12]
-sort5skip4:
-    COPYFROM [11]
-    JUMPZ    sort5skip8
+    JUMPZ    sort5skip7
     SUB      [10]
-    JUMPN    sort5skip5
-    COPYFROM [11]
+    JUMPN    sort5skip2
+    COPYFROM [12]
     COPYTO   21
     COPYFROM [10]
+    COPYTO   [12]
+    COPYFROM 21
+    COPYTO   [10]
+sort5skip2:
+    COPYFROM [13]
+    JUMPZ    sort5skip5
+    SUB      [11]
+    JUMPN    sort5skip3
+    COPYFROM [13]
+    COPYTO   21
+    COPYFROM [11]
+    COPYTO   [13]
+    COPYFROM 21
     COPYTO   [11]
+sort5skip3:
+    COPYFROM [14]
+    JUMPZ    sort5skip4
+    SUB      [13]
+    JUMPN    sort5skip4
+    COPYFROM [14]
+    COPYTO   21
+    COPYFROM [13]
+    COPYTO   [14]
+    COPYFROM 21
+    COPYTO   [13]
+sort5skip4:
+    COPYFROM [13]
+    SUB      [10]
+    JUMPN    sort5skip5
+    COPYFROM [13]
+    COPYTO   21
+    COPYFROM [10]
+    COPYTO   [13]
     COPYFROM 21
     COPYTO   [10]
 sort5skip5:
-    COPYFROM [14]
-    JUMPZ    sort5skip7
+    COPYFROM [12]
     SUB      [11]
     JUMPN    sort5skip6
-    COPYFROM [14]
-    COPYTO   21
-    COPYFROM [11]
-    COPYTO   [14]
-    COPYFROM 21
-    COPYTO   [11]
-sort5skip6:
-    COPYFROM [14]
-    SUB      [13]
-    JUMPN    sort5skip7
-    COPYFROM [14]
-    COPYTO   21
-    COPYFROM [13]
-    COPYTO   [14]
-    COPYFROM 21
-    COPYTO   [13]
-sort5skip7:
-    COPYFROM [12]
-    JUMPZ    sort5skip8
-    SUB      [11]
-    JUMPN    sort5skip8
     COPYFROM [12]
     COPYTO   21
     COPYFROM [11]
     COPYTO   [12]
     COPYFROM 21
     COPYTO   [11]
+sort5skip6:
+    COPYFROM [13]
+    JUMPZ    sort5skip7
+    SUB      [12]
+    JUMPN    sort5skip7
+    COPYFROM [13]
+    COPYTO   21
+    COPYFROM [12]
+    COPYTO   [13]
+    COPYFROM 21
+    COPYTO   [12]
+sort5skip7:
+    COPYFROM [11]
+    JUMPZ    sort5skip8
+    SUB      [10]
+    JUMPN    sort5skip8
+    COPYFROM [11]
+    COPYTO   21
+    COPYFROM [10]
+    COPYTO   [11]
+    COPYFROM 21
+    COPYTO   [10]
 sort5skip8:
     COPYFROM 14
     JUMPZ secondsort
