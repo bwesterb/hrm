@@ -1,20 +1,21 @@
 -- HUMAN RESOURCE MACHINE PROGRAM --
 
     COPYFROM 24
-
     COPYTO 22
     BUMPUP 22
     BUMPUP 22
     ADD 22
     COPYTO 23
+    COPYTO 18
     ADD 23
     COPYTO 22
     BUMPUP 22
-
+    COPYTO 17
+    BUMPUP 17
+    BUMPUP 18
 start:
     COPYFROM 22
     COPYTO 21
-
 start21wasok:
     INBOX
     COPYTO 9
@@ -24,112 +25,64 @@ start21wasok:
     JUMPZ writesingle
     BUMPDN 21
     BUMPDN 21
-
+    COPYFROM 24
+    COPYTO 15
+    COPYTO 19
+    COPYFROM 23
+    COPYTO 16
+    BUMPUP 16
 readloop:
     INBOX
-    COPYTO [21]
     JUMPZ zeroloop
+    COPYTO [21]
     BUMPDN 21
     JUMPN firstsort
     JUMP readloop
-
 zeroloop:
+    COPYFROM 21
+    SUB 23
+    JUMPZ onlysecondrow
     COPYFROM 24
     COPYTO [21]
     BUMPDN 21
     JUMPN firstsort
     JUMP zeroloop
-
-write:
-    COPYFROM 24
-    COPYTO 15
-    COPYFROM 23
-    COPYTO 16
-    BUMPUP 16
-    BUMPUP 23
-    BUMPUP 22
-
-check15:
+writeboth:
     COPYFROM [15]
     JUMPZ bump15
-    JUMP check16
-
-bump15:
-    BUMPUP 15
-    SUB 23
-    JUMPN check15 
-    JUMP simplywritesecond
-
 check16:
     COPYFROM [16]
     JUMPZ bump16
-    JUMP merge
-
-bump16:
-    BUMPUP 16
-    SUB 22
-    JUMPN check16 
-    JUMP simplywritefirst
-
-simplywritesecond:
-    COPYFROM [16]
-    JUMPZ simplywritesecondskipwriting
-    OUTBOX
-simplywritesecondskipwriting:
-    BUMPUP 16
-    SUB 22
-    JUMPN simplywritesecond
-    JUMP reset
-
-simplywritefirst:
-    COPYFROM [15]
-    OUTBOX
-    BUMPUP 15
-    SUB 23
-    JUMPN simplywritefirst
-    JUMP reset
-
 merge:
     COPYFROM [15]
     SUB [16]
     JUMPN output15
-
 output16:
     COPYFROM [16]
     OUTBOX
     BUMPUP 16
-    SUB 22
+    SUB 17
     JUMPN merge 
-    JUMP simplywritefirst
-
+simplywritefirst:
+    COPYFROM [15]
+    OUTBOX
+    BUMPUP 15
+    SUB 18
+    JUMPN simplywritefirst
+    JUMP start
+bump15:
+    BUMPUP 15
+    JUMP writeboth
+bump16:
+    BUMPUP 16
+    JUMP check16
 output15:
     COPYFROM [15]
     OUTBOX
     BUMPUP 15
-    SUB 23
+    SUB 18
     JUMPN merge
     JUMP simplywritesecond 
-
-reset:    
-    BUMPDN 22
-    BUMPDN 23
-    JUMP start
-
-
-secondsort:
-    COPYFROM 10
-    COPYTO 14
-    BUMPUP 14
-    COPYTO 13
-    BUMPUP 13
-    COPYTO 12
-    BUMPUP 12
-    COPYTO 11
-    BUMPUP 11
-    COPYTO 10
-    BUMPUP 10
-    JUMP sort5
-
 firstsort:
     COPYFROM 23
     COPYTO 10
@@ -141,7 +94,6 @@ firstsort:
     BUMPDN 13
     COPYTO 14
     BUMPDN 14
-
 sort5:
     COPYFROM [10]
     JUMPZ    sort5skip8
@@ -246,9 +198,33 @@ sort5skip7:
 sort5skip8:
     COPYFROM 14
     JUMPZ secondsort
-    JUMP write
-
+    COPYFROM 19
+    JUMPZ writeboth
+simplywritesecond:
+    COPYFROM [16]
+    JUMPZ simplywritesecondskipwriting
+    OUTBOX
+simplywritesecondskipwriting:
+    BUMPUP 16
+    SUB 17
+    JUMPN simplywritesecond
+    JUMP start
 writesingle:
     COPYFROM 9
     OUTBOX
     JUMP start
+onlysecondrow:
+    BUMPUP 19
+secondsort:
+    COPYFROM 23
+    COPYTO 14
+    BUMPUP 14
+    COPYTO 13
+    BUMPUP 13
+    COPYTO 12
+    BUMPUP 12
+    COPYTO 11
+    BUMPUP 11
+    COPYTO 10
+    BUMPUP 10
+    JUMP sort5
