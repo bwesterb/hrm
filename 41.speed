@@ -16,7 +16,6 @@
 start:
     INBOX
     COPYTO 9
-    JUMPZ start
     INBOX
     COPYTO 8
     JUMPZ writesingle
