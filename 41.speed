@@ -173,7 +173,6 @@ sort5skip5:
     COPYTO   [11]
 sort5skip6:
     COPYFROM [14]
-    JUMPZ    sort5skip7
     SUB      [13]
     JUMPN    sort5skip7
     COPYFROM [14]
