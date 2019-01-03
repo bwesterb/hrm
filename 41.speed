@@ -78,115 +78,115 @@ output20:
     JUMP simplywritesecond 
 firstsort:
     COPYFROM 23
-    COPYTO 10
-    COPYTO 11
-    BUMPDN 11
     COPYTO 12
-    BUMPDN 12
     COPYTO 13
     BUMPDN 13
     COPYTO 14
     BUMPDN 14
+    COPYTO 15
+    BUMPDN 15
+    COPYTO 16
+    BUMPDN 16
 sort5:
-    COPYFROM [10]
+    COPYFROM [12]
     JUMPZ    sort5skip8
-    COPYFROM [14]
+    COPYFROM [16]
     JUMPZ    sort5skip1
-    SUB      [10]
+    SUB      [12]
     JUMPN    sort5skip0
-    COPYFROM [14]
+    COPYFROM [16]
     COPYTO   21
-    COPYFROM [10]
-    COPYTO   [14]
+    COPYFROM [12]
+    COPYTO   [16]
     COPYFROM 21
-    COPYTO   [10]
+    COPYTO   [12]
 sort5skip0:
-    COPYFROM [14]
-    SUB      [12]
+    COPYFROM [16]
+    SUB      [14]
     JUMPN    sort5skip1
-    COPYFROM [14]
+    COPYFROM [16]
     COPYTO   21
-    COPYFROM [12]
-    COPYTO   [14]
+    COPYFROM [14]
+    COPYTO   [16]
     COPYFROM 21
-    COPYTO   [12]
+    COPYTO   [14]
 sort5skip1:
-    COPYFROM [12]
-    JUMPZ    sort5skip7
-    SUB      [10]
-    JUMPN    sort5skip2
-    COPYFROM [12]
-    COPYTO   21
-    COPYFROM [10]
-    COPYTO   [12]
-    COPYFROM 21
-    COPYTO   [10]
-sort5skip2:
-    COPYFROM [13]
-    JUMPZ    sort5skip5
-    SUB      [11]
-    JUMPN    sort5skip3
-    COPYFROM [13]
-    COPYTO   21
-    COPYFROM [11]
-    COPYTO   [13]
-    COPYFROM 21
-    COPYTO   [11]
-sort5skip3:
     COPYFROM [14]
-    JUMPZ    sort5skip4
-    SUB      [13]
-    JUMPN    sort5skip4
-    COPYFROM [14]
-    COPYTO   21
-    COPYFROM [13]
-    COPYTO   [14]
-    COPYFROM 21
-    COPYTO   [13]
-sort5skip4:
-    COPYFROM [13]
-    SUB      [10]
-    JUMPN    sort5skip5
-    COPYFROM [13]
-    COPYTO   21
-    COPYFROM [10]
-    COPYTO   [13]
-    COPYFROM 21
-    COPYTO   [10]
-sort5skip5:
-    COPYFROM [12]
-    SUB      [11]
-    JUMPN    sort5skip6
-    COPYFROM [12]
-    COPYTO   21
-    COPYFROM [11]
-    COPYTO   [12]
-    COPYFROM 21
-    COPYTO   [11]
-sort5skip6:
-    COPYFROM [13]
     JUMPZ    sort5skip7
     SUB      [12]
+    JUMPN    sort5skip2
+    COPYFROM [14]
+    COPYTO   21
+    COPYFROM [12]
+    COPYTO   [14]
+    COPYFROM 21
+    COPYTO   [12]
+sort5skip2:
+    COPYFROM [15]
+    JUMPZ    sort5skip5
+    SUB      [13]
+    JUMPN    sort5skip3
+    COPYFROM [15]
+    COPYTO   21
+    COPYFROM [13]
+    COPYTO   [15]
+    COPYFROM 21
+    COPYTO   [13]
+sort5skip3:
+    COPYFROM [16]
+    JUMPZ    sort5skip4
+    SUB      [15]
+    JUMPN    sort5skip4
+    COPYFROM [16]
+    COPYTO   21
+    COPYFROM [15]
+    COPYTO   [16]
+    COPYFROM 21
+    COPYTO   [15]
+sort5skip4:
+    COPYFROM [15]
+    SUB      [12]
+    JUMPN    sort5skip5
+    COPYFROM [15]
+    COPYTO   21
+    COPYFROM [12]
+    COPYTO   [15]
+    COPYFROM 21
+    COPYTO   [12]
+sort5skip5:
+    COPYFROM [14]
+    SUB      [13]
+    JUMPN    sort5skip6
+    COPYFROM [14]
+    COPYTO   21
+    COPYFROM [13]
+    COPYTO   [14]
+    COPYFROM 21
+    COPYTO   [13]
+sort5skip6:
+    COPYFROM [15]
+    JUMPZ    sort5skip7
+    SUB      [14]
     JUMPN    sort5skip7
+    COPYFROM [15]
+    COPYTO   21
+    COPYFROM [14]
+    COPYTO   [15]
+    COPYFROM 21
+    COPYTO   [14]
+sort5skip7:
+    COPYFROM [13]
+    JUMPZ    sort5skip8
+    SUB      [12]
+    JUMPN    sort5skip8
     COPYFROM [13]
     COPYTO   21
     COPYFROM [12]
     COPYTO   [13]
     COPYFROM 21
     COPYTO   [12]
-sort5skip7:
-    COPYFROM [11]
-    JUMPZ    sort5skip8
-    SUB      [10]
-    JUMPN    sort5skip8
-    COPYFROM [11]
-    COPYTO   21
-    COPYFROM [10]
-    COPYTO   [11]
-    COPYFROM 21
-    COPYTO   [10]
 sort5skip8:
-    COPYFROM 14
+    COPYFROM 16
     JUMPZ secondsort
     COPYFROM 18
     COPYTO 21
@@ -215,13 +215,13 @@ onlysecondrow:
     BUMPUP 19
 secondsort:
     COPYFROM 18
+    COPYTO 16
+    COPYTO 15
+    BUMPUP 15
     COPYTO 14
+    BUMPUP 14
     COPYTO 13
     BUMPUP 13
     COPYTO 12
     BUMPUP 12
-    COPYTO 11
-    BUMPUP 11
-    COPYTO 10
-    BUMPUP 10
     JUMP sort5
