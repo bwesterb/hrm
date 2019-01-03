@@ -200,15 +200,21 @@ sort5skip8:
     JUMPZ secondsort
     COPYFROM 19
     JUMPZ writeboth
+    JUMP simplywritesecond
+simplywritesecondbumpzero:
+    BUMPUP 16
 simplywritesecond:
     COPYFROM [16]
-    JUMPZ simplywritesecondskipwriting
+    JUMPZ simplywritesecondbumpzero
     OUTBOX
-simplywritesecondskipwriting:
+    COPYFROM 24
+    COPYTO 10
+simplywritesecondloop:
     BUMPUP 16
-    SUB 17
-    JUMPN simplywritesecond
-    JUMP start
+    COPYFROM [16]
+    JUMPZ start
+    OUTBOX
+    JUMP simplywritesecondloop
 writesingle:
     COPYFROM 9
     OUTBOX
