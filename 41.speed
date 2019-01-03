@@ -6,13 +6,21 @@
     BUMPUP 22
     ADD 22
     COPYTO 23
+    COPYTO 16
+    BUMPUP 16
     COPYTO 18
-    ADD 23
+    COPYTO 15
+    BUMPUP 15
+    COPYTO 14
+    BUMPUP 14
+    COPYTO 13
+    BUMPUP 13
+    COPYTO 12
+    BUMPUP 12
+    COPYFROM 12
     COPYTO 22
-    BUMPUP 22
     COPYTO 17
     BUMPUP 17
-    BUMPUP 18
 start:
     INBOX
     COPYTO 9
@@ -187,7 +195,7 @@ sort5skip7:
     COPYTO   [12]
 sort5skip8:
     COPYFROM 16
-    JUMPZ secondsort
+    JUMPZ resetindexforsecondsort
     COPYFROM 18
     COPYTO 21
     COPYFROM 19
@@ -213,7 +221,8 @@ writesingle:
     JUMP start
 onlysecondrow:
     BUMPUP 19
-secondsort:
+    JUMP sort5
+resetindexforsecondsort:
     COPYFROM 18
     COPYTO 16
     COPYTO 15
