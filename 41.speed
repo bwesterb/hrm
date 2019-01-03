@@ -55,9 +55,6 @@ bump20:
 writeboth:
     COPYFROM [20]
     JUMPZ bump20
-check21:
-    COPYFROM [21]
-    JUMPZ bump21
     JUMP merge
 output21:
     COPYFROM [21]
@@ -81,9 +78,6 @@ simplywritefirst:
     SUB 18
     JUMPN simplywritefirst
     JUMP start
-bump21:
-    BUMPUP 21
-    JUMP check21
 firstsort:
     COPYFROM 23
     COPYTO 12
