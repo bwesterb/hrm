@@ -32,19 +32,79 @@ zeroloop:
 
 write:
     COPYFROM 24
-    COPYTO 21
-    COPYFROM 22
-    COPYTO 20
-    BUMPUP 20
-writeloop:
-    COPYFROM [21]
-    JUMPZ writeskip
+    COPYTO 15
+    COPYFROM 23
+    COPYTO 16
+    BUMPUP 16
+    BUMPUP 23
+    BUMPUP 22
+
+check15:
+    COPYFROM [15]
+    JUMPZ bump15
+    JUMP check16
+
+bump15:
+    BUMPUP 15
+    SUB 23
+    JUMPN check15 
+    JUMP simplywritesecond
+
+check16:
+    COPYFROM [16]
+    JUMPZ bump16
+    JUMP merge
+
+bump16:
+    BUMPUP 16
+    SUB 22
+    JUMPN check16 
+    JUMP simplywritefirst
+
+simplywritesecond:
+    COPYFROM [16]
+    JUMPZ simplywritesecondskipwriting
     OUTBOX
-writeskip:
-    BUMPUP 21
-    SUB 20
-    JUMPZ start
-    JUMP writeloop
+simplywritesecondskipwriting:
+    BUMPUP 16
+    SUB 22
+    JUMPN simplywritesecond
+    JUMP reset
+
+simplywritefirst:
+    COPYFROM [15]
+    OUTBOX
+    BUMPUP 15
+    SUB 23
+    JUMPN simplywritefirst
+    JUMP reset
+
+merge:
+    COPYFROM [15]
+    SUB [16]
+    JUMPN output15
+
+output16:
+    COPYFROM [16]
+    OUTBOX
+    BUMPUP 16
+    SUB 22
+    JUMPN merge 
+    JUMP simplywritefirst
+
+output15:
+    COPYFROM [15]
+    OUTBOX
+    BUMPUP 15
+    SUB 23
+    JUMPN merge
+    JUMP simplywritesecond 
+
+reset:    
+    BUMPDN 22
+    BUMPDN 23
+    JUMP start
+
 
 secondsort:
     COPYFROM 10
@@ -73,6 +133,8 @@ firstsort:
     BUMPDN 14
 
 sort5:
+    COPYFROM [10]
+    JUMPZ    sort5skip8
     COPYFROM [14]
     JUMPZ    sort5skip0
     SUB      [10]
