@@ -24,7 +24,7 @@ start:
     BUMPDN 21
     BUMPDN 21
     COPYFROM 24
-    COPYTO 15
+    COPYTO 20
     COPYTO 19
 readloop:
     INBOX
@@ -42,37 +42,37 @@ zeroloop:
     COPYTO [21]
     BUMPDN 21
     JUMP zeroloop
-bump15:
-    BUMPUP 15
+bump20:
+    BUMPUP 20
 writeboth:
-    COPYFROM [15]
-    JUMPZ bump15
+    COPYFROM [20]
+    JUMPZ bump20
 check21:
     COPYFROM [21]
     JUMPZ bump21
 merge:
-    COPYFROM [15]
+    COPYFROM [20]
     SUB [21]
-    JUMPN output15
+    JUMPN output20
     COPYFROM [21]
     OUTBOX
     BUMPUP 21
     SUB 17
     JUMPN merge 
 simplywritefirst:
-    COPYFROM [15]
+    COPYFROM [20]
     OUTBOX
-    BUMPUP 15
+    BUMPUP 20
     SUB 18
     JUMPN simplywritefirst
     JUMP start
 bump21:
     BUMPUP 21
     JUMP check21
-output15:
-    COPYFROM [15]
+output20:
+    COPYFROM [20]
     OUTBOX
-    BUMPUP 15
+    BUMPUP 20
     SUB 18
     JUMPN merge
     JUMP simplywritesecond 
