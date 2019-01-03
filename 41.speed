@@ -2,6 +2,7 @@
 
     COPYFROM 24
     COPYTO 22
+    COPYTO 10
     BUMPUP 22
     BUMPUP 22
     ADD 22
@@ -57,15 +58,22 @@ writeboth:
 check21:
     COPYFROM [21]
     JUMPZ bump21
-merge:
-    COPYFROM [20]
-    SUB [21]
-    JUMPN output20
+    JUMP merge
+output21:
     COPYFROM [21]
     OUTBOX
     BUMPUP 21
-    SUB 17
-    JUMPN merge 
+merge:
+    COPYFROM [21]
+    JUMPZ simplywritefirst
+    SUB [20]
+    JUMPN output21
+    COPYFROM [20]
+    OUTBOX
+    BUMPUP 20
+    SUB 18
+    JUMPN merge
+    JUMP simplywritesecond 
 simplywritefirst:
     COPYFROM [20]
     OUTBOX
@@ -76,13 +84,6 @@ simplywritefirst:
 bump21:
     BUMPUP 21
     JUMP check21
-output20:
-    COPYFROM [20]
-    OUTBOX
-    BUMPUP 20
-    SUB 18
-    JUMPN merge
-    JUMP simplywritesecond 
 firstsort:
     COPYFROM 23
     COPYTO 12
@@ -206,8 +207,6 @@ simplywritesecond:
     COPYFROM [21]
     JUMPZ simplywritesecondbumpzero
     OUTBOX
-    COPYFROM 24
-    COPYTO 10
 simplywritesecondloop:
     BUMPUP 21
     COPYFROM [21]
