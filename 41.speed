@@ -15,6 +15,16 @@ start:
     COPYFROM 22
     COPYTO 21
 
+start21wasok:
+    INBOX
+    COPYTO 9
+    JUMPZ start21wasok
+    INBOX
+    COPYTO 8
+    JUMPZ writesingle
+    BUMPDN 21
+    BUMPDN 21
+
 readloop:
     INBOX
     COPYTO [21]
@@ -238,3 +248,7 @@ sort5skip8:
     JUMPZ secondsort
     JUMP write
 
+writesingle:
+    COPYFROM 9
+    OUTBOX
+    JUMP start
