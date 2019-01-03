@@ -26,8 +26,6 @@ start:
     COPYFROM 24
     COPYTO 15
     COPYTO 19
-    COPYFROM 18
-    COPYTO 16
 readloop:
     INBOX
     JUMPZ zerolooppre
@@ -49,16 +47,16 @@ bump15:
 writeboth:
     COPYFROM [15]
     JUMPZ bump15
-check16:
-    COPYFROM [16]
-    JUMPZ bump16
+check21:
+    COPYFROM [21]
+    JUMPZ bump21
 merge:
     COPYFROM [15]
-    SUB [16]
+    SUB [21]
     JUMPN output15
-    COPYFROM [16]
+    COPYFROM [21]
     OUTBOX
-    BUMPUP 16
+    BUMPUP 21
     SUB 17
     JUMPN merge 
 simplywritefirst:
@@ -68,9 +66,9 @@ simplywritefirst:
     SUB 18
     JUMPN simplywritefirst
     JUMP start
-bump16:
-    BUMPUP 16
-    JUMP check16
+bump21:
+    BUMPUP 21
+    JUMP check21
 output15:
     COPYFROM [15]
     OUTBOX
@@ -190,20 +188,22 @@ sort5skip7:
 sort5skip8:
     COPYFROM 14
     JUMPZ secondsort
+    COPYFROM 18
+    COPYTO 21
     COPYFROM 19
     JUMPZ writeboth
     JUMP simplywritesecond
 simplywritesecondbumpzero:
-    BUMPUP 16
+    BUMPUP 21
 simplywritesecond:
-    COPYFROM [16]
+    COPYFROM [21]
     JUMPZ simplywritesecondbumpzero
     OUTBOX
     COPYFROM 24
     COPYTO 10
 simplywritesecondloop:
-    BUMPUP 16
-    COPYFROM [16]
+    BUMPUP 21
+    COPYFROM [21]
     JUMPZ start
     OUTBOX
     JUMP simplywritesecondloop
