@@ -18,7 +18,6 @@
     COPYTO 12
     BUMPUP 12
     COPYFROM 12
-    COPYTO 22
     COPYTO 17
     BUMPUP 17
 start:
@@ -27,7 +26,7 @@ start:
     INBOX
     COPYTO 8
     JUMPZ writesingle
-    COPYFROM 22
+    COPYFROM 12
     COPYTO 21
     BUMPDN 21
     BUMPDN 21
