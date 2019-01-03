@@ -109,7 +109,7 @@ sort5:
     COPYTO   [10]
 sort5skip0:
     COPYFROM [12]
-    JUMPZ    sort5skip1
+    JUMPZ    sort5skip3
     SUB      [10]
     JUMPN    sort5skip1
     COPYFROM [12]
@@ -120,7 +120,7 @@ sort5skip0:
     COPYTO   [10]
 sort5skip1:
     COPYFROM [13]
-    JUMPZ    sort5skip2
+    JUMPZ    sort5skip3
     SUB      [11]
     JUMPN    sort5skip2
     COPYFROM [13]
@@ -142,7 +142,7 @@ sort5skip2:
     COPYTO   [12]
 sort5skip3:
     COPYFROM [11]
-    JUMPZ    sort5skip4
+    JUMPZ    sort5skip8
     SUB      [10]
     JUMPN    sort5skip4
     COPYFROM [11]
@@ -153,7 +153,7 @@ sort5skip3:
     COPYTO   [10]
 sort5skip4:
     COPYFROM [13]
-    JUMPZ    sort5skip5
+    JUMPZ    sort5skip6
     SUB      [12]
     JUMPN    sort5skip5
     COPYFROM [13]
@@ -175,7 +175,7 @@ sort5skip5:
     COPYTO   [11]
 sort5skip6:
     COPYFROM [12]
-    JUMPZ    sort5skip7
+    JUMPZ    sort5skip8
     SUB      [11]
     JUMPN    sort5skip7
     COPYFROM [12]
