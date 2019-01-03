@@ -47,6 +47,8 @@ zeroloop:
     BUMPDN 21
     JUMPN firstsort
     JUMP zeroloop
+bump15:
+    BUMPUP 15
 writeboth:
     COPYFROM [15]
     JUMPZ bump15
@@ -70,9 +72,6 @@ simplywritefirst:
     SUB 18
     JUMPN simplywritefirst
     JUMP start
-bump15:
-    BUMPUP 15
-    JUMP writeboth
 bump16:
     BUMPUP 16
     JUMP check16
@@ -222,9 +221,8 @@ writesingle:
 onlysecondrow:
     BUMPUP 19
 secondsort:
-    COPYFROM 23
+    COPYFROM 18
     COPYTO 14
-    BUMPUP 14
     COPYTO 13
     BUMPUP 13
     COPYTO 12
